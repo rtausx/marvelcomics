@@ -6,7 +6,7 @@ const express = require('express');
 const api = require('./apigateway');
 const cacheCharacters = require('./cache-characters.js');
 const fs = require('fs').promises;
-require('dotenv').config();
+require('dotenv').config({ path: __dirname + '/.env' });
 
 const { APP_PORT } = process.env;
 

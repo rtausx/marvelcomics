@@ -1,5 +1,6 @@
 const fetch = require('node-fetch');
-require('dotenv').config();
+require('dotenv').config({ path: __dirname + '/../.env' });
+console.log('Environment Variables:', process.env);
 const md5 = require('../md5');
 
 const { MARVEL_PUBLIC_KEY, MARVEL_PRIVATE_KEY } = process.env; //api keys
