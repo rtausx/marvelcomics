@@ -1,3 +1,4 @@
+const path = require('path');
 const api = require('./apigateway');
 const fs = require('fs').promises; 
 
@@ -11,7 +12,7 @@ async function cache() {
             characters.characters.push(result.name); //adds the character's name to the array
         });
 
-        await fs.writeFile('./cache/cache-characters.json', JSON.stringify(characters), 'utf8'); 
+        await fs.writeFile(path.join(__dirname , 'cache', 'cache-characters.json'), JSON.stringify(characters), 'utf8'); 
 
         console.log('Cached characters:', characters);
     } catch (error) {

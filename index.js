@@ -6,6 +6,7 @@ const express = require('express');
 const api = require('./apigateway');
 const cacheCharacters = require('./cache-characters.js');
 const fs = require('fs').promises;
+const path = require('path')
 require('dotenv').config({ path: __dirname + '/.env' });
 
 const { APP_PORT } = process.env;
@@ -62,7 +63,7 @@ app.get('/marvel/comicsCSV', async (req, res, next) => {
 //route for fetching list of characters, to populate the character input box on the website
 app.get('/marvel/cache', async (req, res, next) => {
     try {
-        const cache = await fs.readFile('./cache/cache-characters.json', 'utf8');
+        const cache = await fs.readFile(path.join(__dirname, 'cache' , 'cache-characters.json'), 'utf8');
         res.status(200).json(JSON.parse(cache));
     } catch (error) {
         next(error); // Pass error to the error handler middleware

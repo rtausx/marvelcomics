@@ -1,8 +1,9 @@
 const fs = require('fs').promises;
+const path = require('path');
 
 //turns comics data into a CSV OR reads CSV with comics data, depends on the method used
 async function comicsCSV(comicsData, data, method) {
-    const filePath = `./cache/${data.character}.csv`; //relative file path to cache folder in the project folder
+    const filePath = path.join(__dirname, 'cache' , `${data.character}.csv`); //relative file path to cache folder in the project folder
     const csvHeader = '*id*,*title*,*description*,*url*,*thumbnail*,*year*\n'; //csv header
 
     if (method === 'SAVE') { //intends to save the csv (after downloading all comics)

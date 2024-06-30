@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 const md5 = require('../md5');
+const path = require('path')
 require('dotenv').config({ path: __dirname + '/../.env' });
-
 const { MARVEL_PUBLIC_KEY, MARVEL_PRIVATE_KEY } = process.env;
 
 async function characters(data) {
